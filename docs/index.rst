@@ -1,0 +1,5 @@
+==========================
+medialog.datatablebehavior
+==========================
+
+User documentation
