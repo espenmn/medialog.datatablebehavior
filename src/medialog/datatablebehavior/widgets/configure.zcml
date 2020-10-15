@@ -1,0 +1,27 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:z3c="http://namespaces.zope.org/z3c"
+    i18n_domain="medialog.datatablebehavior">
+
+    <class class=".widget.DataTableWidget">
+      <require
+          permission="zope.Public"
+          interface="medialog.datatablebehavior.widgets.widget.IDataTableWidget"
+          />
+    </class>
+
+    <!--  Display widget  -->
+    <z3c:widgetTemplate
+        mode="display"
+        widget="medialog.datatablebehavior.widgets.widget.IDataTableWidget"
+        layer="z3c.form.interfaces.IFormLayer"
+        template="datatable_display.pt" />
+
+    <!--  Input (edit) widget  -->
+    <z3c:widgetTemplate
+        mode="input"
+        widget="medialog.datatablebehavior.widgets.widget.IDataTableWidget"
+        layer="z3c.form.interfaces.IFormLayer"
+        template="datatable_input.pt" />
+
+</configure>

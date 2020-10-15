@@ -1,0 +1,44 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      i18n:domain="medialog.datatablebehavior"
+      metal:use-macro="context/main_template/macros/master">
+<body>
+  <metal:block fill-slot="content-core">
+    <table class="datatable pat-tablesorter listing"
+          tal:define="portal_state context/@@plone_portal_state; portal_url portal_state/portal_url;">
+    <thead>
+Repeat with rows here
+      <tr>
+
+        <th>Onderdeel</th>
+        <th>Omschrijving</th>
+        <th>Voorr</th>
+      </tr>
+    </thead>
+    <tbody>
+    </tbody>
+  </table>
+  <script>
+
+
+  $(document).ready(function() {
+      $('.datatable').DataTable( {
+          "processing": true,
+          "pageLength": ${view/pagelenght},
+          "lengthMenu": [ [ ${view/data/pagelenghts} ], [ ${view/data/pagelenghts} ] ],
+          data: ${view/table},
+          // add column definitions to map to the table
+          "columns": [
+              // columns here;
+              {data: "onderdeel"},
+              {data: "omschrijving"},
+              {data: "voor"},
+          ]
+      } );
+  });
+  </script>
+  </metal:block>
+</body>
+</html>
