@@ -1,47 +1,19 @@
-<html>
+<div lang="en"
+     xml:lang="en"
+     xmlns="http://www.w3.org/1999/xhtml"
+     xmlns:tal="http://xml.zope.org/namespaces/tal"
+     xmlns:metal="http://xml.zope.org/namespaces/metal"
+     xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+     i18n:domain="medialog.datatablebehavior">
 
-<span class="ontop">
-<button  class="btn btn-default"
- 			role="iconpicker"
-			tal:attributes="id string:${view/id};
-                       name view/name;
-                       data-iconset   view/iconset;
-                       data-icon      view/value;
-                       data-rows      view/rows;
-                       data-cols      view/cols;
-                       data-placement view/placement;
-                       value view/value;
-                       disabled view/disabled;
-                       alt view/alt;
-                       accesskey view/accesskey;
-                       onselect view/onselect;"  />
+    <!--textarea type="textarea"
+                 role="markdown"
+                 tal:attributes="name view/name;
+                 value view/value;
+                 disabled view/disabled;
+                 alt view/alt;
+                 accesskey view/accesskey;
+                 onselect view/onselect;"
+                 tal:content="view/value"/-->
 
-
-<input  type="hidden"  disabled="True" tal:attributes="id string:${view/id};
-                       name view/name;
-                       title view/title;
-                       lang view/lang;
-                       alt view/alt;
-                       accesskey view/accesskey;
-                       onselect view/onselect;
-                       size view/size;
-                       maxlength view/maxlength" />
-
-<tal:resources tal:define="iconset view/iconset" tal:replace="structure view/?iconset"/>
-
-<link rel="stylesheet" href="++resource++medialog.iconpicker/bootstrap-iconpicker/css/bootstrap-iconpicker.min.css"/>
-<link rel="stylesheet" href="++resource++medialog.iconpicker/bootstrap-3.2.0/css/bootstrap.min.css"/>
-<script type="text/javascript" src="++resource++medialog.iconpicker/bootstrap-iconpicker/js/bootstrap-iconpicker.min.js"></script>
-
-<tal:plone4 tal:condition="not:view/plone5">
-<script tal:condition="view/loadbootstrap"
-    type="text/javascript" src="++resource++collective.js.bootstrap/js/bootstrap.min.js"></script>
-</tal:plone4>
-
-<tal:plone5 tal:condition="view/plone5">
-<script tal:condition="view/loadbootstrap"
-    type="text/javascript" src="++resource++medialog.iconpicker/bootstrap-3.2.0/js/bootstrap.min.js"></script>
-</tal:plone5>
-</span>
-
-</html>
+</div>

@@ -13,6 +13,8 @@
   -->
   <!--<includeDependencies package="." />-->
 
+  <include package="plone.app.registry" />
+
   <include package=".browser" />
   <include file="permissions.zcml" />
   <include package=".widgets" />

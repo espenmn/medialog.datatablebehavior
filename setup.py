@@ -54,6 +54,10 @@ setup(
         'plone.api>=1.8.4',
         'plone.restapi',
         'plone.app.dexterity',
+        'plone.formwidget.namedfile',
+        'medialog.controlpanel'
+        'plone.app.registry',
+        'collective.z3cform.datagridfield',
     ],
     extras_require={
         'test': [

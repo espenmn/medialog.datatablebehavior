@@ -3,42 +3,44 @@
       xmlns:tal="http://xml.zope.org/namespaces/tal"
       xmlns:i18n="http://xml.zope.org/namespaces/i18n"
       i18n:domain="medialog.datatablebehavior"
-      metal:use-macro="context/main_template/macros/master">
-<body>
-  <metal:block fill-slot="content-core">
+      tal:define="header view/context/tableheader|None;
+       pagelenght python:context.portal_registry['medialog.datatablebehavior.interfaces.ITableBehaviorSettings.page_size'] or '';
+       page_sizes python:context.portal_registry['medialog.datatablebehavior.interfaces.ITableBehaviorSettings.page_sizes'] or '';
+       ">
+
     <table class="datatable pat-tablesorter listing"
           tal:define="portal_state context/@@plone_portal_state; portal_url portal_state/portal_url;">
     <thead>
-Repeat with rows here
       <tr>
-
-        <th>Onderdeel</th>
-        <th>Omschrijving</th>
-        <th>Voorr</th>
+        <th tal:repeat="keyname header">
+          ${keyname}
+        </th>
       </tr>
     </thead>
     <tbody>
     </tbody>
   </table>
-  <script>
 
-
-  $(document).ready(function() {
-      $('.datatable').DataTable( {
-          "processing": true,
-          "pageLength": ${view/pagelenght},
-          "lengthMenu": [ [ ${view/data/pagelenghts} ], [ ${view/data/pagelenghts} ] ],
-          data: ${view/table},
-          // add column definitions to map to the table
+  <script>require([
+  'jquery',
+  '++plone++static/plone-datatables-compiled.min'
+  ], function(Base) {
+    'use strict';
+    $('.datatable').DataTable( {
+        "processing": true,
+        "pageLength": ${pagelenght},
+        "lengthMenu": [ ${view/page_sizes_values}, ${view/page_sizes_names} ],
+        data: ${view/context/table},
+        // add column definitions to map your json to the table
           "columns": [
               // columns here;
-              {data: "onderdeel"},
-              {data: "omschrijving"},
-              {data: "voor"},
+              <tal:repeat tal:repeat="keyname header">{data: "${keyname}"},</tal:repeat>
           ]
-      } );
+      });
   });
-  </script>
-  </metal:block>
-</body>
+</script>
+<style>
+.dataTables_length label { line-height: 3em: }
+</style>
+
 </html>

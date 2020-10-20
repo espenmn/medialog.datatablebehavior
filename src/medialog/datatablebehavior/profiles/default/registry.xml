@@ -2,7 +2,17 @@
 <registry
     xmlns:i18n="http://xml.zope.org/namespaces/i18n"
     i18n:domain="medialog.datatablebehavior">
-
-<!-- -*- extra stuff goes here -*- -->
-
+    <record name="medialog.datatablebehavior.interfaces.ITableBehaviorSettings.page_size" interface="medialog.datatablebehavior.interfaces.ITableBehaviorSettings" field="page_size">
+      <field type="plone.registry.field.Int">
+      </field>
+      <value>100</value>
+    </record>
+    <record name="medialog.datatablebehavior.interfaces.ITableBehaviorSettings.page_sizes" interface="medialog.datatablebehavior.interfaces.ITableBehaviorSettings" field="page_sizes">
+ 
+    </record>
+    <record name="medialog.datatablebehavior.interfaces.ITableBehaviorSettings.delimeter" interface="medialog.datatablebehavior.interfaces.ITableBehaviorSettings" field="delimeter">
+      <field type="plone.registry.field.ASCIILine">
+      </field>
+      <value>;</value>
+    </record>
 </registry>
