@@ -6,6 +6,7 @@
      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
      i18n:domain="medialog.datatablebehavior">
 
+<p>Table will show here after save</p>
     <!--textarea type="textarea"
                  role="markdown"
                  tal:attributes="name view/name;
