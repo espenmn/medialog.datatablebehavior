@@ -55,7 +55,7 @@ setup(
         'plone.restapi',
         'plone.app.dexterity',
         'plone.formwidget.namedfile',
-        'medialog.controlpanel'
+        'medialog.controlpanel',
         'plone.app.registry',
         'collective.z3cform.datagridfield',
     ],
