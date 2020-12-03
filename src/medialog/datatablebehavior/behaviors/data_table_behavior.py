@@ -82,7 +82,7 @@ class DataTableBehavior(object):
 
     @csv_file.setter
     def csv_file(self, value):
-        #self.context.table = self.to_dict(value)
+        self.context.table = self.to_dict(value)   
         self.context.csv_file = value
 
 
